@@ -1,0 +1,232 @@
+{
+    "topics": [
+        {
+            "week": "Week 1-2: Introduction to HTML",
+            "sessions": [
+                {
+                    "subtopics": [
+                        "Document structure: <html>, <head>, <body>",
+                        "Text formatting: <p>, <strong>, <em>"
+                    ],
+                    "session_title": "Basic Structure and Elements",
+                    "session_number": 1
+                },
+                {
+                    "subtopics": [
+                        "Lists: <ol>, <ul>, <li>",
+                        "Tables: <table>, <tr>, <th>, <td>"
+                    ],
+                    "session_title": "Lists and Tables",
+                    "session_number": 2
+                },
+                {
+                    "subtopics": [
+                        "Forms: <form>, <input>, <button>",
+                        "Input types: text, password, checkbox, radio"
+                    ],
+                    "session_title": "Forms and Input",
+                    "session_number": 3
+                },
+                {
+                    "subtopics": [
+                        "Semantic tags: <header>, <nav>, <section>, <footer>",
+                        "Accessibility basics"
+                    ],
+                    "session_title": "Semantic HTML",
+                    "session_number": 4
+                }
+            ]
+        },
+        {
+            "week": "Week 3-4: Introduction to CSS",
+            "sessions": [
+                {
+                    "subtopics": [
+                        "Fonts, colors, backgrounds, borders"
+                    ],
+                    "session_title": "Basic Styling",
+                    "session_number": 5
+                },
+                {
+                    "subtopics": [
+                        "Display, float, clear, positioning (relative, absolute, fixed)"
+                    ],
+                    "session_title": "Layout and Positioning",
+                    "session_number": 6
+                },
+                {
+                    "subtopics": [
+                        "Media queries, mobile-first approach"
+                    ],
+                    "session_title": "Responsive Design",
+                    "session_number": 7
+                },
+                {
+                    "subtopics": [
+                        "Transitions, animations, CSS variables"
+                    ],
+                    "session_title": "Advanced Styling Techniques",
+                    "session_number": 8
+                }
+            ]
+        },
+        {
+            "week": "Week 5-6: Introduction to JavaScript",
+            "sessions": [
+                {
+                    "subtopics": [
+                        "Variables, data types, operators"
+                    ],
+                    "session_title": "Core JavaScript",
+                    "session_number": 9
+                },
+                {
+                    "subtopics": [
+                        "Function declaration, arrow functions, scope"
+                    ],
+                    "session_title": "Functions and Scope",
+                    "session_number": 10
+                },
+                {
+                    "subtopics": [
+                        "Selecting and modifying elements, event handling"
+                    ],
+                    "session_title": "DOM Manipulation",
+                    "session_number": 11
+                },
+                {
+                    "subtopics": [
+                        "Callbacks, promises, async/await"
+                    ],
+                    "session_title": "Asynchronous JavaScript",
+                    "session_number": 12
+                }
+            ]
+        },
+        {
+            "week": "Week 7-8: Version Control with Git",
+            "sessions": [
+                {
+                    "subtopics": [
+                        "Repository setup, staging, committing"
+                    ],
+                    "session_title": "Git Basics",
+                    "session_number": 13
+                },
+                {
+                    "subtopics": [
+                        "Creating branches, merging branches"
+                    ],
+                    "session_title": "Branching and Merging",
+                    "session_number": 14
+                },
+                {
+                    "subtopics": [
+                        "Pushing, pulling, GitHub basics"
+                    ],
+                    "session_title": "Remote Repositories",
+                    "session_number": 15
+                }
+            ]
+        },
+        {
+            "week": "Week 9: Web Performance Optimization",
+            "sessions": [
+                {
+                    "subtopics": [
+                        "Minification, concatenation, compression"
+                    ],
+                    "session_title": "Optimization Techniques",
+                    "session_number": 16
+                },
+                {
+                    "subtopics": [
+                        "Resizing, compression, formats"
+                    ],
+                    "session_title": "Image Optimization",
+                    "session_number": 17
+                },
+                {
+                    "subtopics": [
+                        "Browser caching, server-side caching"
+                    ],
+                    "session_title": "Caching Strategies",
+                    "session_number": 18
+                }
+            ]
+        },
+        {
+            "week": "Week 10: Security Best Practices",
+            "sessions": [
+                {
+                    "subtopics": [
+                        "SSL/TLS, security headers"
+                    ],
+                    "session_title": "HTTPS and Secure Connections",
+                    "session_number": 19
+                },
+                {
+                    "subtopics": [
+                        "Client-side and server-side validation"
+                    ],
+                    "session_title": "Input Validation",
+                    "session_number": 20
+                },
+                {
+                    "subtopics": [
+                        "Sanitizing input, encoding output"
+                    ],
+                    "session_title": "XSS Prevention",
+                    "session_number": 21
+                }
+            ]
+        },
+        {
+            "week": "Week 11: Responsive Design",
+            "sessions": [
+                {
+                    "subtopics": [
+                        "Using @media for different screen sizes"
+                    ],
+                    "session_title": "Media Queries",
+                    "session_number": 22
+                },
+                {
+                    "subtopics": [
+                        "Flexbox, CSS Grid"
+                    ],
+                    "session_title": "Flexible Grid Systems",
+                    "session_number": 23
+                },
+                {
+                    "subtopics": [
+                        "viewport meta tag, touch events"
+                    ],
+                    "session_title": "Viewport and Device Compatibility",
+                    "session_number": 24
+                }
+            ]
+        },
+        {
+            "week": "Week 12: Final Project and Review",
+            "sessions": [
+                {
+                    "subtopics": [
+                        "Project requirements, setup"
+                    ],
+                    "session_title": "Final Project Introduction",
+                    "session_number": 25
+                },
+                {
+                    "subtopics": [
+                        "Development, feedback, and improvements"
+                    ],
+                    "session_title": "Project Development and Review",
+                    "session_number": 26
+                }
+            ]
+        }
+    ],
+    "course_title": "Comprehensive Web Development Course",
+    "course_duration": "12 weeks (2 days per week)"
+}
