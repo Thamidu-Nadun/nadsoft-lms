@@ -46,17 +46,17 @@ if (isset($_POST['newsLetterSubmit'])) {
   <!-- META ============================================= -->
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="keywords" content="" />
-  <meta name="author" content="" />
+  <meta name="keywords" content="lms, nadsoft, nadun, web, course" />
+  <meta name="author" content="nadun" />
   <meta name="robots" content="" />
 
   <!-- DESCRIPTION -->
-  <meta name="description" content="EduChamp : Education HTML Template" />
+  <meta name="description" content="Discover our user-friendly Learning Management System (LMS), designed for seamless education and training management." />
 
   <!-- OG -->
-  <meta property="og:title" content="EduChamp : Education HTML Template" />
-  <meta property="og:description" content="EduChamp : Education HTML Template" />
-  <meta property="og:image" content="" />
+  <meta property="og:title" content="NadSoft-LMS" />
+  <meta property="og:description" content="Discover our user-friendly Learning Management System (LMS), designed for seamless education and training management." />
+  <meta property="og:image" content="https://i.ibb.co/r0yTjTs/logo.png" />
   <meta name="format-detection" content="telephone=no" />
 
   <!-- FAVICONS ICON ============================================= -->
