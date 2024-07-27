@@ -7,7 +7,7 @@
                         <li><a href="faq-1.html"><i
                                     class="fa fa-question-circle"></i><?php echo $translations['ask_a_question']['content']; ?></a>
                         </li>
-                        <li><a href="javascript:;"><i class="fa fa-envelope-o"></i>Support@website.com</a></li>
+                        <li><a href="mailto:nadsoftlms@proton.me"><i class="fa fa-envelope-o"></i>nadsoftlms@proton.me</a></li>
                     </ul>
                 </div>
                 <div class="topbar-right">
