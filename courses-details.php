@@ -201,7 +201,14 @@ try {
                     <div class="col-lg-9 col-md-8 col-sm-12">
                         <div class="courses-post">
                             <div class="ttr-post-media media-effect">
-                                <a href="#"><img src="assets/images/blog/default/thum1.jpg" alt=""></a>
+                            <!-- assets/images/blog/default/thum1.jpg -->
+                                <a href="#"><img src="<?php
+                                if ($image=='') {
+                                    echo 'assets/images/blog/default/thum1.jpg';
+                                }else{
+                                    echo $image;
+                                }
+                                ?>" alt=""></a>
                             </div>
                             <div class="ttr-post-info">
                                 <div class="ttr-post-title ">

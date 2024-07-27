@@ -1,3 +1,10 @@
+<style>
+    @media screen and (max-width: 400px) {
+        #event{
+            display: none;
+        }
+    }
+</style>
 <div class="section-area section-sp2" id="event">
     <div class="container">
         <div class="row">

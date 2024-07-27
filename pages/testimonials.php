@@ -1,3 +1,10 @@
+<style>
+    @media screen and (max-width: 400px){
+        #testimonials{
+            display: none;
+        }
+    }
+</style>
 <div id="testimonials" class="section-area section-sp2 bg-fix ovbl-dark" style="background-image:url(assets/images/background/bg1.jpg);">
     <div class="container">
         <div class="row">
