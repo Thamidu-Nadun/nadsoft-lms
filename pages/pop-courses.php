@@ -65,8 +65,8 @@
                                 </div>
 
                                 <div class="price">
-                                    <del><?php echo $currency; ?><?php echo $course_data[0]['price'] + rand(30, 150); ?></del>
-                                    <h5><?php echo $currency; ?><?php echo $course_data[0]['price']; ?></h5>
+                                <del><?php echo $currency; ?><?php if ($currency=='$') {$course_data[0]['price'] =  $course_data[0]['price']/300;} echo $course_data[0]['price'] + rand(30, 150); ?></del>
+<h5><?php echo $currency; ?><?php echo $course_data[0]['price']; ?></h5>
                                 </div><br /><br />
                             </div>
                         </div>
@@ -122,7 +122,7 @@
                                 </div>
 
                                 <div class="price">
-                                    <del><?php echo $currency; ?><?php echo $course_data[1]['price'] + rand(30, 150); ?></del>
+                                    <del><?php echo $currency; ?><?php if ($currency=='$') {$course_data[1]['price'] =  $course_data[1]['price']/300;} echo $course_data[1]['price'] + rand(30, 150); ?></del>
                                     <h5><?php echo $currency; ?><?php echo $course_data[1]['price']; ?></h5>
                                 </div>
                             </div>
@@ -179,7 +179,8 @@
                                 </div>
 
                                 <div class="price">
-                                    <del><?php echo $currency; ?><?php echo $course_data[2]['price'] + rand(30, 150); ?></del>
+                                <del><?php echo $currency; ?><?php if ($currency=='$') {$course_data[2]['price'] =  $course_data[2]['price']/300;} echo $course_data[2]['price'] + rand(30, 150); ?></del>
+
                                     <h5><?php echo $currency; ?><?php echo $course_data[2]['price']; ?></h5>
                                 </div>
                             </div>
@@ -236,7 +237,7 @@
                                 </div>
 
                                 <div class="price">
-                                    <del><?php echo $currency; ?><?php echo $course_data[3]['price'] + rand(30, 150); ?></del>
+                                <del><?php echo $currency; ?><?php if ($currency=='$') {$course_data[3]['price'] =  $course_data[3]['price']/300;} echo $course_data[3]['price'] + rand(30, 150); ?></del>
                                     <h5><?php echo $currency; ?><?php echo $course_data[3]['price']; ?></h5>
                                 </div>
                             </div>
@@ -293,7 +294,7 @@
                                 </div>
 
                                 <div class="price">
-                                    <del><?php echo $currency; ?><?php echo $course_data[4]['price'] + rand(30, 150); ?></del>
+                                <del><?php echo $currency; ?><?php if ($currency=='$') {$course_data[4]['price'] =  $course_data[4]['price']/300;} echo $course_data[4]['price'] + rand(30, 150); ?></del>
                                     <h5><?php echo $currency; ?><?php echo $course_data[4]['price']; ?></h5>
                                 </div>
                             </div>
