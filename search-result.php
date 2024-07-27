@@ -1,6 +1,7 @@
 <?php
 include_once ('header.php');
 include ('pages/nav.php');
+$message = '';
 ?>
 <style>
     .highlight {
@@ -16,81 +17,96 @@ include ('pages/nav.php');
     }
 </style>
 <?php
-
-// Sanitize the search input
-$search_text = strip_tags($_GET['search'] ?? ''); // Strip tags for security, adjust as needed
-
-// Split the search text by spaces into an array of keywords
-$keywords = explode(' ', $search_text);
-
-// Trim each keyword to remove extra spaces
-$keywords = array_map('trim', $keywords);
-
-// Remove any empty keywords (in case there are multiple spaces)
-$keywords = array_filter($keywords);
-
-// If there are no valid keywords after filtering, you may handle this case accordingly
-
-// Prepare placeholders for binding in SQL query
-$placeholders = array_fill(0, count($keywords), '%' . $search_text . '%');
-
-
-// Build the WHERE clause for SQL query
-$where_conditions = [];
-
-foreach ($keywords as $index => $keyword) {
-    $where_conditions[] = "(course.name LIKE :name{$index} OR course.short_description LIKE :short_description{$index})";
-    $params[":name{$index}"] = "%{$keyword}%";
-    $params[":short_description{$index}"] = "%{$keyword}%";
+if (!isset($_GET['search'])) {
+    $message = 'Search Keyword is not defined. Please enter it \n\n search.php?search=<your_keyword>';
+    echo '<script>alert("'.$message.'");</script>';
+    die();
+}
+if ($_GET['search'] == '') {
+    $message = 'Please enter a search term';
+    echo '<script>alert("'.$message.'");</script>';
+    die();
 }
 
-// Join the WHERE conditions with OR
-$where_clause = implode(' OR ', $where_conditions);
+// Sanitize the search input
+$search_text = strip_tags($_GET['search'] ?? '');
 
-// Adjust your existing SQL query with the dynamically created WHERE clause
-$sql = "SELECT course.*, category.id AS cat_id, category.name AS cat_name 
+if (isset($search_text)) {
+    // Split the search text by spaces into an array of keywords
+    $keywords = explode(' ', $search_text);
+
+    // Trim each keyword to remove extra spaces
+    $keywords = array_map('trim', $keywords);
+
+    // Remove any empty keywords (in case there are multiple spaces)
+    $keywords = array_filter($keywords);
+
+    // If there are no valid keywords after filtering, you may handle this case accordingly
+
+    // Prepare placeholders for binding in SQL query
+    $placeholders = array_fill(0, count($keywords), '%' . $search_text . '%');
+
+
+    // Build the WHERE clause for SQL query
+    $where_conditions = [];
+
+    foreach ($keywords as $index => $keyword) {
+        $where_conditions[] = "(course.name LIKE :name{$index} OR course.short_description LIKE :short_description{$index})";
+        $params[":name{$index}"] = "%{$keyword}%";
+        $params[":short_description{$index}"] = "%{$keyword}%";
+    }
+
+    // Join the WHERE conditions with OR
+    $where_clause = implode(' OR ', $where_conditions);
+
+    // Adjust your existing SQL query with the dynamically created WHERE clause
+    $sql = "SELECT course.*, category.id AS cat_id, category.name AS cat_name 
         FROM course 
         JOIN category ON course.cat_id = category.id 
         WHERE {$where_clause}";
 
-// Prepare the SQL statement
-$statement = $pdo->prepare($sql);
+    // Prepare the SQL statement
+    $statement = $pdo->prepare($sql);
 
-// Bind parameters
-foreach ($params as $param_name => $param_value) {
-    $statement->bindValue($param_name, $param_value);
+    // Bind parameters
+    foreach ($params as $param_name => $param_value) {
+        $statement->bindValue($param_name, $param_value);
+    }
+
+    // Execute the query
+    $statement->execute();
+
+    // Fetch the results
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+
+    // Process the result
+    $card_data = [];
+    foreach ($result as $row) {
+        $id = $row['id'];
+        $name = $row['name'];
+        $short_name = $row['short_name'];
+        $price = $row['price'];
+        $cat_name = $row['cat_name'];
+        $short_description = $row['short_description'];
+        $review = $row['review'];
+
+
+        $row_data = array(
+            'id' => $id,
+            'name' => $name,
+            'short_name' => $short_name,
+            'price' => $price,
+            'cat_name' => $cat_name,
+            'short_description' => $short_description,
+            'review' => $review,
+        );
+        $card_data[] = $row_data;
+    }
+} else {
+    echo 'Nothing to search';
 }
 
-// Execute the query
-$statement->execute();
-
-// Fetch the results
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-
-// Process the result
-$card_data = [];
-foreach ($result as $row) {
-    $id = $row['id'];
-    $name = $row['name'];
-    $short_name = $row['short_name'];
-    $price = $row['price'];
-    $cat_name = $row['cat_name'];
-    $short_description = $row['short_description'];
-    $review = $row['review'];
-    
-
-    $row_data = array(
-        'id' => $id,
-        'name' => $name,
-        'short_name' => $short_name,
-        'price' => $price,
-        'cat_name' => $cat_name,
-        'short_description' => $short_description,
-        'review' => $review,
-    );
-    $card_data[] = $row_data;
-}
 ?>
 <div class="page-content bg-white">
     <!-- inner page banner -->
@@ -155,12 +171,14 @@ foreach ($result as $row) {
                                             width="200" height="143" alt=""> </div>
                                     <div class="ttr-post-info">
                                         <div class="ttr-post-header">
-                                            <h6 class="post-title"><a href="courses-details.php?c_id=<?php echo $result[0]['id']; ?>"><?php echo $result[0]['name']; ?></a></h6>
+                                            <h6 class="post-title"><a
+                                                    href="courses-details.php?c_id=<?php echo $result[0]['id']; ?>"><?php echo $result[0]['name']; ?></a>
+                                            </h6>
                                         </div>
                                         <div class="ttr-post-meta">
                                             <ul>
                                                 <li class="price">
-                                                    <del><?php echo $currency ?><?php echo $result[0]['price']+100; ?></del>
+                                                    <del><?php echo $currency ?><?php echo $result[0]['price'] + 100; ?></del>
                                                     <h5><?php echo $currency ?><?php echo $result[0]['price']; ?></h5>
                                                 </li>
                                                 <li class="review"><?php echo $result[0]['review']; ?> Review</li>
@@ -173,12 +191,14 @@ foreach ($result as $row) {
                                             width="200" height="160" alt=""> </div>
                                     <div class="ttr-post-info">
                                         <div class="ttr-post-header">
-                                        <h6 class="post-title"><a href="courses-details.php?c_id=<?php echo $result[0]['id']; ?>"><?php echo $result[0]['name']; ?></a></h6>
+                                            <h6 class="post-title"><a
+                                                    href="courses-details.php?c_id=<?php echo $result[0]['id']; ?>"><?php echo $result[0]['name']; ?></a>
+                                            </h6>
                                         </div>
                                         <div class="ttr-post-meta">
-                                        <ul>
+                                            <ul>
                                                 <li class="price">
-                                                    <del><?php echo $currency ?><?php echo $result[0]['price']+100; ?></del>
+                                                    <del><?php echo $currency ?><?php echo $result[0]['price'] + 100; ?></del>
                                                     <h5><?php echo $currency ?><?php echo $result[0]['price']; ?></h5>
                                                 </li>
                                                 <li class="review"><?php echo $result[0]['review']; ?> Review</li>

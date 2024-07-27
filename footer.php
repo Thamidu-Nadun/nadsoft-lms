@@ -66,7 +66,7 @@
                                 <h5 class="footer-title">Company</h5>
                                 <ul>
                                     <li><a href="index.php">Home</a></li>
-                                    <li><a href="about-1.php">About</a></li>
+                                    <li><a href="about.php">About</a></li>
                                     <li><a href="faq-1.html">FAQs</a></li>
                                     <li><a href="contact-1.html">Contact</a></li>
                                 </ul>
@@ -77,7 +77,7 @@
                                 <h5 class="footer-title">Get In Touch</h5>
                                 <ul>
                                     <li><a href="blog-classic-grid.html">Blog</a></li>
-                                    <li><a href="event.html">Event</a></li>
+                                    <li><a href="event.php">Event</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -85,9 +85,9 @@
                             <div class="widget footer_widget">
                                 <h5 class="footer-title">Courses</h5>
                                 <ul>
-                                    <li><a href="courses.html">Courses</a></li>
+                                    <li><a href="courses.php">Courses</a></li>
                                     <li><a href="membership.html">Membership</a></li>
-                                    <li><a href="search-result.php?free=true">Free Courses</a></li>
+                                    <li><a href="search-result.php?search=html">Free Courses</a></li>
                                 </ul>
                             </div>
                         </div>
