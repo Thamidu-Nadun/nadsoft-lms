@@ -143,7 +143,11 @@ try {
                         <div class="course-detail-bx">
                             <div class="course-price">
                                 <del><?php echo $currency . $price + 100; ?></del>
-                                <h4 class="price"><?php echo $currency . $price; ?></h4>
+                                <h4 class="price"><?php 
+                                if ($currency=='$'){
+                                    $price = $price / 300;
+                                }
+                                echo $currency . $price; ?></h4>
                             </div>
                             <div class="course-buy-now text-center">
                                 <a href="enroll.php?course_id=<?php echo $course_id; ?>"
