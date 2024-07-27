@@ -108,7 +108,7 @@
                                 <li><a href="index.php#news">NEWS</a></li>
                             </ul>
                         </li>
-                        <li><a href="javascript:;">Pages <i class="fa fa-chevron-down"></i></a>
+                        <li><a href="javascript:;">Quick Links <i class="fa fa-chevron-down"></i></a>
                             <ul class="sub-menu">
                                 <li><a href="javascript:;">Student <i class="fa fa-angle-right"></i></a>
                                     <ul class="sub-menu">
@@ -120,15 +120,9 @@
                                     <ul class="sub-menu">
                                         <li><a href="admin/">Dashboard</a></li>
                                         <li><a href="admin/courses.php">My Courses</a></li>
-                                        <li><a href="admin/user-profile.html">My Profile</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="javascript:;">About<i class="fa fa-angle-right"></i></a>
-                                    <ul class="sub-menu">
-                                        <li><a href="about-1.html">About US</a></li>
-                                        <li><a href="about-2.html">About 2</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="about.php">About</a></li>
                                 <li><a href="javascript:;">Event<i class="fa fa-angle-right"></i></a>
                                     <ul class="sub-menu">
                                         <li><a href="event.php">Happening</a></li>
@@ -137,7 +131,7 @@
                                         <!-- <li><a href="events-details.html">Events Details</a></li> -->
                                     </ul>
                                 </li>
-                                <li><a href="javascript:;">FAQ's<i class="fa fa-angle-right"></i></a>
+                                <!-- <li><a href="javascript:;">FAQ's<i class="fa fa-angle-right"></i></a>
                                     <ul class="sub-menu">
                                         <li><a href="faq-1.html">FAQ's 1</a></li>
                                         <li><a href="faq-2.html">FAQ's 2</a></li>
@@ -152,7 +146,7 @@
                                 <li><a href="portfolio.html">Portfolio</a></li>
                                 <li><a href="profile.html">Profile</a></li>
                                 <li><a href="membership.html">Membership</a></li>
-                                <li><a href="error-404.html">404 Page</a></li>
+                                <li><a href="error-404.html">404 Page</a></li> -->
                             </ul>
                         </li>
                         <li class="add-mega-menu"><a href="javascript:;">Our Courses <i
@@ -173,7 +167,8 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="javascript:;">Blog <i class="fa fa-chevron-down"></i></a>
+                        <li class="add-mega-menu"><a href="https://nadun.web.lk" target="_blank">Blog</a></li>
+                        <!-- <li><a href="javascript:;">Blog <i class="fa fa-chevron-down"></i></a>
                             <ul class="sub-menu">
                                 <li><a href="blog-classic-grid.html">Blog Classic</a></li>
                                 <li><a href="blog-classic-sidebar.html">Blog Classic Sidebar</a></li>
@@ -181,8 +176,8 @@
                                 <li><a href="blog-standard-sidebar.html">Blog Standard Sidebar</a></li>
                                 <li><a href="blog-details.html">Blog Details</a></li>
                             </ul>
-                        </li>
-                        <li class="nav-dashboard"><a href="javascript:;">Dashboard <i
+                        </li> -->
+                        <!-- <li class="nav-dashboard"><a href="javascript:;">Dashboard <i
                                     class="fa fa-chevron-down"></i></a>
                             <ul class="sub-menu">
                                 <li><a href="admin/index.html">Dashboard</a></li>
@@ -207,7 +202,7 @@
                                 </li>
                             </ul>
                         </li>
-                    </ul>
+                    </ul> -->
                     <div class="nav-social-link">
                         <a href="javascript:;"><i class="fa fa-facebook"></i></a>
                         <a href="javascript:;"><i class="fa fa-google-plus"></i></a>

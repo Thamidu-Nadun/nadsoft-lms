@@ -30,7 +30,13 @@
                     <div class="item">
                         <div class="cours-bx">
                             <div class="action-box">
-                                <img src="assets/images/courses/pic1.jpg" alt="">
+                                <img src="<?php
+                                if ($course_data[0]['image']=='') {
+                                    echo 'assets/images/courses/pic1.jpg';
+                                }else{
+                                    echo $course_data[0]['image'];
+                                }
+                                ?>" alt="">
                                 <a href="#" class="btn">Read More</a>
                             </div>
                             <div class="info-bx text-center">
@@ -81,7 +87,13 @@
                     <div class="item">
                         <div class="cours-bx">
                             <div class="action-box">
-                                <img src="assets/images/courses/pic1.jpg" alt="">
+                                <img src="<?php
+                                if ($course_data[1]['image']=='') {
+                                    echo 'assets/images/courses/pic1.jpg';
+                                }else{
+                                    echo $course_data[1]['image'];
+                                }
+                                ?>" alt="">
                                 <a href="#" class="btn">Read More</a>
                             </div>
                             <div class="info-bx text-center">
@@ -132,7 +144,13 @@
                     <div class="item">
                         <div class="cours-bx">
                             <div class="action-box">
-                                <img src="assets/images/courses/pic1.jpg" alt="">
+                                <img src="<?php
+                                if ($course_data[2]['image']=='') {
+                                    echo 'assets/images/courses/pic1.jpg';
+                                }else{
+                                    echo $course_data[2]['image'];
+                                }
+                                ?>" alt="">
                                 <a href="#" class="btn">Read More</a>
                             </div>
                             <div class="info-bx text-center">
@@ -183,7 +201,13 @@
                     <div class="item">
                         <div class="cours-bx">
                             <div class="action-box">
-                                <img src="assets/images/courses/pic1.jpg" alt="">
+                                <img src="<?php
+                                if ($course_data[3]['image']=='') {
+                                    echo 'assets/images/courses/pic1.jpg';
+                                }else{
+                                    echo $course_data[3]['image'];
+                                }
+                                ?>" alt="">
                                 <a href="#" class="btn">Read More</a>
                             </div>
                             <div class="info-bx text-center">
@@ -234,12 +258,18 @@
                     <div class="item">
                         <div class="cours-bx">
                             <div class="action-box">
-                                <img src="assets/images/courses/pic1.jpg" alt="">
+                                <img src="<?php
+                                if ($course_data[4]['image']=='') {
+                                    echo 'assets/images/courses/pic1.jpg';
+                                }else{
+                                    echo $course_data[4]['image'];
+                                }
+                                ?>" alt="">
                                 <a href="#" class="btn">Read More</a>
                             </div>
                             <div class="info-bx text-center">
                                 <h5><a
-                                        href="courses-details.php?c_id=<?php echo $course_data[0]['id']; ?>"><?php echo $course_data[4]['name']; ?></a>
+                                        href="courses-details.php?c_id=<?php echo $course_data[4]['id']; ?>"><?php echo $course_data[4]['name']; ?></a>
                                 </h5>
                                 <span><?php echo $course_data[4]['cat_name']; ?></span>
                             </div>
