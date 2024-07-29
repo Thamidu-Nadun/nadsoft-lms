@@ -163,7 +163,7 @@ if (isset($_GET['user_prefer_category'])){
                         <a href="<?php echo $id; ?>" class="btn">Read More</a>
                     </div>
                     <div class="info-bx text-center">
-                        <h5><a href="course-details.php?id=<?php echo $id; ?>"><?php echo $name; ?></a></h5>
+                        <h5><a href="courses-details.php?c_id=<?php echo $id; ?>"><?php echo $name; ?></a></h5>
                         <span><?php echo $category_name; ?></span> <!-- Display category name -->
                     </div>
                     <div class="cours-more-info">

@@ -2,9 +2,9 @@
 include('header.php');
 ob_start(); // Start output buffering
 
-// Check if session is already started
+// Start session if not already started
 if (session_status() == PHP_SESSION_NONE) {
-    session_start(); // Start session
+    session_start();
 }
 
 $message = '';
@@ -20,42 +20,51 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!filter_var($admin_mail, FILTER_VALIDATE_EMAIL)) {
             $message = 'Invalid email format.';
         } else {
-            // Database connection (assuming $pdo is defined in header.php or another included file)
-            $statement = $pdo->prepare("SELECT * FROM teacher WHERE email = :email");
-            $statement->bindParam(':email', $admin_mail, PDO::PARAM_STR);
-            $statement->execute();
-            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            // Database connection
+            try {
+                $statement = $pdo->prepare("SELECT * FROM teacher WHERE email = :email");
+                $statement->bindParam(':email', $admin_mail, PDO::PARAM_STR);
+                $statement->execute();
+                $result = $statement->fetch(PDO::FETCH_ASSOC);
 
-            if ($result) {
-                // Verify the password using MD5 (consider using a stronger hashing algorithm)
-                if (md5($admin_password) === $result['password']) {
-                    if ($remember == 'remember') {
-                        $expire = time() + 60 * 60 * 24 * 7; // 7 days
-                        setcookie('admin_id', $result['id'], $expire, '/', '', true, true);
-                        setcookie('admin_name', $result['user_name'], $expire, '/', '', true, true);
-                        setcookie('admin_mail', $result['email'], $expire, '/', '', true, true);
-                        setcookie('admin_status', $result['status'], $expire, '/', '', true, true);
-                        setcookie('admin_avatar', $result['avatar'], $expire, '/', '', true, true);
+                if ($result) {
+                    // Debugging: print password hash
+                    echo 'Password from DB: ' . $result['password'] . '<br>';
+                    echo 'Password entered: ' . md5($admin_password) . '<br>';
+
+                    // Verify the password
+                    if (md5($admin_password) === $result['password']) {
+                        if ($remember == 'remember') {
+                            $expire = time() + 60 * 60 * 24 * 7; // 7 days
+                            setcookie('admin_id', $result['id'], $expire, '/', '', true, true);
+                            setcookie('admin_name', $result['user_name'], $expire, '/', '', true, true);
+                            setcookie('admin_mail', $result['email'], $expire, '/', '', true, true);
+                            setcookie('admin_status', $result['status'], $expire, '/', '', true, true);
+                            setcookie('admin_avatar', $result['avatar'], $expire, '/', '', true, true);
+                        } else {
+                            $_SESSION['admin_id'] = $result['id'];
+                            $_SESSION['admin_name'] = $result['user_name'];
+                            $_SESSION['admin_mail'] = $result['email'];
+                            $_SESSION['admin_status'] = $result['status'];
+                            $_SESSION['admin_avatar'] = $result['avatar'];
+                        }
+                        header("Location: index.php"); // Redirect to the dashboard
+                        exit();
                     } else {
-                        $_SESSION['admin_id'] = $result['id'];
-                        $_SESSION['admin_name'] = $result['user_name'];
-                        $_SESSION['admin_mail'] = $result['email'];
-                        $_SESSION['admin_status'] = $result['status'];
-                        $_SESSION['admin_avatar'] = $result['avatar'];
+                        $message = 'Invalid password.';
                     }
-                    header("Location: index.php"); // Redirect to the dashboard
-                    exit();
                 } else {
-                    $message = 'Invalid password.';
+                    $message = 'No user found with this email.';
                 }
-            } else {
-                $message = 'No user found with this email.';
+            } catch (PDOException $e) {
+                $message = 'Database error: ' . $e->getMessage();
             }
         }
     }
 }
 ob_end_flush(); // Flush the output buffer
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

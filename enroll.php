@@ -1,7 +1,7 @@
 <?php
 // Include necessary files
-include_once ('header.php');
-include ('pages/nav.php');
+include_once('header.php');
+include('pages/nav.php');
 
 // Initialize message variable
 $message = '';
@@ -44,7 +44,7 @@ if (isset($_GET['course_id'])) {
 
     } catch (PDOException $e) {
         // Handle PDO exceptions
-        echo 'Error: ' . $e->getMessage();
+        $message = 'Error: ' . $e->getMessage();
     }
 }
 
@@ -68,14 +68,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($valid) {
             try {
                 // Check if email exists and password matches
-                $statement = $pdo->prepare("SELECT * FROM student WHERE email=? AND status='Active'");
-                $statement->execute(array($email));
-                $total = $statement->rowCount();
+                $statement = $pdo->prepare("SELECT * FROM student WHERE email = ? AND status = 'Active'");
+                $statement->execute([$email]);
                 $result = $statement->fetch(PDO::FETCH_ASSOC);
 
-                if ($total == 0) {
-                    $message .= 'Email Address does not match or Login<br>';
-                    echo '<script>window.location="login.php";</script>';
+                if (!$result) {
+                    $message .= 'Email Address does not match or is not Active<br>';
                 } else {
                     $row_password = $result['password'];
                     $student_id = $result['id'];
@@ -95,9 +93,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 if ($existing_enrollment) {
                                     $message = 'You are already enrolled in this course.';
                                 } else {
-                                    // Insert enrollment record into student_course table
-                                    $insert_statement = $pdo->prepare("INSERT INTO student_course (student_id, course_id, batch_id) VALUES (?, ?, ?)");
-                                    $insert_statement->execute([$student_id, $course_id, $batch_id]);
+                                    $status  = 'Pending';
+                                    $date = Date('y-m-d');
+                                    $insert_statement = $pdo->prepare("INSERT INTO student_course (student_id, course_id, batch_id, status) VALUES (?, ?, ?, ?)");
+                                    $insert_statement->execute([$student_id, $course_id, $batch_id, $status]);
 
                                     // Update batch current_student count
                                     $update_statement = $pdo->prepare("UPDATE batch SET current_student = current_student + 1 WHERE id = ?");
@@ -107,17 +106,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 }
                             } catch (PDOException $e) {
                                 // Handle PDO exceptions
-                                echo 'Error: ' . $e->getMessage();
+                                $message = 'Error: ' . $e->getMessage();
                             }
                         } else {
                             $message = 'Student intake is over! Please contact tutor for more information.';
                         }
-
                     }
                 }
             } catch (PDOException $e) {
                 // Handle PDO exceptions
-                echo 'Error: ' . $e->getMessage();
+                $message = 'Error: ' . $e->getMessage();
             }
         }
     }
@@ -160,7 +158,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <h4><?php echo htmlspecialchars($course_name); ?></h4>
                         </div>
                         <div class="price ml-2">
-                            <h5><?php echo $currency . htmlspecialchars($course_price); ?></h5>
+                            <h5><?php echo htmlspecialchars($course_price); ?></h5>
                         </div>
                     </div>
                 </div>
@@ -168,20 +166,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <form class="form-box" method="post">
                         <input type="email" name="student_email" placeholder="Email" required value="<?php
                         if (isset($_COOKIE['user_mail'])) {
-                            echo $_COOKIE['user_mail'];
+                            echo htmlspecialchars($_COOKIE['user_mail']);
                         }
                         ?>"><br /><br />
                         <input type="password" name="student_password" placeholder="Password" required><br /><br />
                         <select name="language" required>
-                            <option value="eng" <?php if ($course_language == 'Sinhala')
-                                echo 'disabled'; ?>>English
+                            <option value="eng" <?php if ($course_language == 'Sinhala') echo 'disabled'; ?>>English
                             </option>
-                            <option value="sin" <?php if ($course_language == 'English')
-                                echo 'disabled'; ?>>Sinhala
+                            <option value="sin" <?php if ($course_language == 'English') echo 'disabled'; ?>>Sinhala
                             </option>
                         </select><br /><br />
-                        <button class="course-buy-now text-center btn radius-xl text-uppercase"
-                            name="submit">Submit</button>
+                        <button class="course-buy-now text-center btn radius-xl text-uppercase" name="submit">Submit</button>
                     </form><br /><br /><br />
                     <div class="message text-center">
                         <h4 id="messageBox"><?php echo $message; ?></h4>
@@ -196,4 +191,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             messageBox.innerHTML = '';
         }, 4000);
     </script>
-    <?php include ('footer.php'); ?>
+    <?php include('footer.php'); ?>
+</body>
+
+</html>
