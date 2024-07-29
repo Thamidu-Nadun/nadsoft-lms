@@ -10,6 +10,7 @@ if (isset($_POST['submit'])) {
 	$user_password = $_POST['user_password'];
 	$user_number = $_POST['user_number'];
 	$user_birth_date = $_POST['user_birth_date'];
+	$status = 'Active';
 
 	if (empty($user_name)) {
 		$valid = false;
@@ -39,7 +40,7 @@ if (isset($_POST['submit'])) {
 				$user_mail,
 				$user_number,
 				md5($user_password),
-				'Pending',
+				$status,
 				'assets/images/profile/pic3.jpeg',
 				$user_birth_date
 			]);
