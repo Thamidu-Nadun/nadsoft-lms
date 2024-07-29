@@ -142,12 +142,24 @@ try {
                     <div class="col-lg-3 col-md-4 col-sm-12 m-b30">
                         <div class="course-detail-bx">
                             <div class="course-price">
-                                <del><?php echo $currency . $price + 100; ?></del>
+                                <del><?php if ($currency=='$'){
+                                    $price_del = $price;
+                                    $price_del = ($price_del+100) / 300;
+                                    echo $currency . number_format($price_del, 2);
+                                }else{
+                                    $price_del = $price+100;
+                                    echo $currency . $price_del;
+                                }
+                                ?></del>
                                 <h4 class="price"><?php 
                                 if ($currency=='$'){
                                     $price = $price / 300;
+                                    echo $currency . number_format($price, 2); 
+                                }else{
+                                    echo $currency . $price; 
                                 }
-                                echo $currency . $price; ?></h4>
+                                ?>
+                                </h4>
                             </div>
                             <div class="course-buy-now text-center">
                                 <a href="enroll.php?course_id=<?php echo $course_id; ?>"

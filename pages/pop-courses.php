@@ -31,9 +31,9 @@
                         <div class="cours-bx">
                             <div class="action-box">
                                 <img src="<?php
-                                if ($course_data[0]['image']=='') {
+                                if ($course_data[0]['image'] == '') {
                                     echo 'assets/images/courses/pic1.jpg';
-                                }else{
+                                } else {
                                     echo $course_data[0]['image'];
                                 }
                                 ?>" alt="">
@@ -65,8 +65,28 @@
                                 </div>
 
                                 <div class="price">
-                                <del><?php echo $currency; ?><?php if ($currency=='$') {$course_data[0]['price'] =  $course_data[0]['price']/300;} echo $course_data[0]['price'] + rand(30, 150); ?></del>
-<h5><?php echo $currency; ?><?php echo $course_data[0]['price']; ?></h5>
+                                    <del><?php
+                                       if ($currency == '$') {
+                                           $price_del = $course_data[0]['price'];
+                                           $price_del = ($price_del + 100) / 300;
+                                           echo $currency . number_format($price_del, 2);
+                                       }else{
+                                            $price_del = $course_data[0]['price'];
+                                            echo $currency . $price_del;
+                                       }
+                                       ?></del>
+                                    <h5>
+                                        <?php
+                                        if ($currency == '$') {
+                                            $price = $course_data[0]['price'];
+                                            $price = $price / 300;
+                                            echo $currency . number_format($price, 2);
+                                        }else{
+                                            $price = $course_data[0]['price'];
+                                            echo $currency . $price;
+                                        }
+                                        ?>
+                                    </h5>
                                 </div><br /><br />
                             </div>
                         </div>
@@ -88,9 +108,9 @@
                         <div class="cours-bx">
                             <div class="action-box">
                                 <img src="<?php
-                                if ($course_data[1]['image']=='') {
+                                if ($course_data[1]['image'] == '') {
                                     echo 'assets/images/courses/pic1.jpg';
-                                }else{
+                                } else {
                                     echo $course_data[1]['image'];
                                 }
                                 ?>" alt="">
@@ -122,9 +142,29 @@
                                 </div>
 
                                 <div class="price">
-                                    <del><?php echo $currency; ?><?php if ($currency=='$') {$course_data[1]['price'] =  $course_data[1]['price']/300;} echo $course_data[1]['price'] + rand(30, 150); ?></del>
-                                    <h5><?php echo $currency; ?><?php echo $course_data[1]['price']; ?></h5>
-                                </div>
+                                    <del><?php
+                                       if ($currency == '$') {
+                                           $price_del = $course_data[1]['price'];
+                                           $price_del = ($price_del + 100) / 300;
+                                           echo $currency . number_format($price_del, 2);
+                                       }else{
+                                            $price_del = $course_data[1]['price'];
+                                            echo $currency . $price_del;
+                                       }
+                                       ?></del>
+                                    <h5>
+                                        <?php
+                                        if ($currency == '$') {
+                                            $price = $course_data[1]['price'];
+                                            $price = $price / 300;
+                                            echo $currency . number_format($price, 2);
+                                        }else{
+                                            $price = $course_data[1]['price'];
+                                            echo $currency . $price;
+                                        }
+                                        ?>
+                                    </h5>
+                                </div><br /><br />
                             </div>
                         </div>
                         <span style="
@@ -145,9 +185,9 @@
                         <div class="cours-bx">
                             <div class="action-box">
                                 <img src="<?php
-                                if ($course_data[2]['image']=='') {
+                                if ($course_data[2]['image'] == '') {
                                     echo 'assets/images/courses/pic1.jpg';
-                                }else{
+                                } else {
                                     echo $course_data[2]['image'];
                                 }
                                 ?>" alt="">
@@ -179,10 +219,29 @@
                                 </div>
 
                                 <div class="price">
-                                <del><?php echo $currency; ?><?php if ($currency=='$') {$course_data[2]['price'] =  $course_data[2]['price']/300;} echo $course_data[2]['price'] + rand(30, 150); ?></del>
-
-                                    <h5><?php echo $currency; ?><?php echo $course_data[2]['price']; ?></h5>
-                                </div>
+                                    <del><?php
+                                       if ($currency == '$') {
+                                           $price_del = $course_data[2]['price'];
+                                           $price_del = ($price_del + 100) / 300;
+                                           echo $currency . number_format($price_del, 2);
+                                       }else{
+                                            $price_del = $course_data[2]['price'];
+                                            echo $currency . $price_del;
+                                       }
+                                       ?></del>
+                                    <h5>
+                                        <?php
+                                        if ($currency == '$') {
+                                            $price = $course_data[2]['price'];
+                                            $price = $price / 300;
+                                            echo $currency . number_format($price, 2);
+                                        }else{
+                                            $price = $course_data[2]['price'];
+                                            echo $currency . $price;
+                                        }
+                                        ?>
+                                    </h5>
+                                </div><br /><br />
                             </div>
                         </div>
                         <span style="
@@ -203,9 +262,9 @@
                         <div class="cours-bx">
                             <div class="action-box">
                                 <img src="<?php
-                                if ($course_data[3]['image']=='') {
+                                if ($course_data[3]['image'] == '') {
                                     echo 'assets/images/courses/pic1.jpg';
-                                }else{
+                                } else {
                                     echo $course_data[3]['image'];
                                 }
                                 ?>" alt="">
@@ -237,9 +296,29 @@
                                 </div>
 
                                 <div class="price">
-                                <del><?php echo $currency; ?><?php if ($currency=='$') {$course_data[3]['price'] =  $course_data[3]['price']/300;} echo $course_data[3]['price'] + rand(30, 150); ?></del>
-                                    <h5><?php echo $currency; ?><?php echo $course_data[3]['price']; ?></h5>
-                                </div>
+                                    <del><?php
+                                       if ($currency == '$') {
+                                           $price_del = $course_data[3]['price'];
+                                           $price_del = ($price_del + 100) / 300;
+                                           echo $currency . number_format($price_del, 2);
+                                       }else{
+                                            $price_del = $course_data[3]['price'];
+                                            echo $currency . $price_del;
+                                       }
+                                       ?></del>
+                                    <h5>
+                                        <?php
+                                        if ($currency == '$') {
+                                            $price = $course_data[3]['price'];
+                                            $price = $price / 300;
+                                            echo $currency . number_format($price, 2);
+                                        }else{
+                                            $price = $course_data[3]['price'];
+                                            echo $currency . $price;
+                                        }
+                                        ?>
+                                    </h5>
+                                </div><br /><br />
                             </div>
                         </div>
                         <span style="
@@ -260,9 +339,9 @@
                         <div class="cours-bx">
                             <div class="action-box">
                                 <img src="<?php
-                                if ($course_data[4]['image']=='') {
+                                if ($course_data[4]['image'] == '') {
                                     echo 'assets/images/courses/pic1.jpg';
-                                }else{
+                                } else {
                                     echo $course_data[4]['image'];
                                 }
                                 ?>" alt="">
@@ -294,9 +373,29 @@
                                 </div>
 
                                 <div class="price">
-                                <del><?php echo $currency; ?><?php if ($currency=='$') {$course_data[4]['price'] =  $course_data[4]['price']/300;} echo $course_data[4]['price'] + rand(30, 150); ?></del>
-                                    <h5><?php echo $currency; ?><?php echo $course_data[4]['price']; ?></h5>
-                                </div>
+                                    <del><?php
+                                       if ($currency == '$') {
+                                           $price_del = $course_data[4]['price'];
+                                           $price_del = ($price_del + 100) / 300;
+                                           echo $currency . number_format($price_del, 2);
+                                       }else{
+                                            $price_del = $course_data[4]['price'];
+                                            echo $currency . $price_del;
+                                       }
+                                       ?></del>
+                                    <h5>
+                                        <?php
+                                        if ($currency == '$') {
+                                            $price = $course_data[4]['price'];
+                                            $price = $price / 300;
+                                            echo $currency . number_format($price, 2);
+                                        }else{
+                                            $price = $course_data[4]['price'];
+                                            echo $currency . $price;
+                                        }
+                                        ?>
+                                    </h5>
+                                </div><br /><br />
                             </div>
                         </div>
                         <span style="
