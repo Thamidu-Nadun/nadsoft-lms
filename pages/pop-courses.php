@@ -98,7 +98,7 @@
                             </div>
                             <div class="info-bx text-center">
                                 <h5><a
-                                        href="courses-details.php?c_id=<?php echo $course_data[0]['id']; ?>"><?php echo $course_data[1]['name']; ?></a>
+                                        href="courses-details.php?c_id=<?php echo $course_data[1]['id']; ?>"><?php echo $course_data[1]['name']; ?></a>
                                 </h5>
                                 <span><?php echo $course_data[1]['cat_name']; ?></span>
                             </div>
@@ -155,7 +155,7 @@
                             </div>
                             <div class="info-bx text-center">
                                 <h5><a
-                                        href="courses-details.php?c_id=<?php echo $course_data[0]['id']; ?>"><?php echo $course_data[2]['name']; ?></a>
+                                        href="courses-details.php?c_id=<?php echo $course_data[2]['id']; ?>"><?php echo $course_data[2]['name']; ?></a>
                                 </h5>
                                 <span><?php echo $course_data[2]['cat_name']; ?></span>
                             </div>
@@ -213,7 +213,7 @@
                             </div>
                             <div class="info-bx text-center">
                                 <h5><a
-                                        href="courses-details.php?c_id=<?php echo $course_data[0]['id']; ?>"><?php echo $course_data[3]['name']; ?></a>
+                                        href="courses-details.php?c_id=<?php echo $course_data[3]['id']; ?>"><?php echo $course_data[3]['name']; ?></a>
                                 </h5>
                                 <span><?php echo $course_data[3]['cat_name']; ?></span>
                             </div>
