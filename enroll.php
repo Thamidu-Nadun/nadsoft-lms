@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 if ($existing_enrollment) {
                                     $message = 'You are already enrolled in this course.';
                                 } else {
-                                    $status  = 'Pending';
+                                    $status  = 'Paid';
                                     $date = Date('y-m-d');
                                     $insert_statement = $pdo->prepare("INSERT INTO student_course (student_id, course_id, batch_id, status) VALUES (?, ?, ?, ?)");
                                     $insert_statement->execute([$student_id, $course_id, $batch_id, $status]);
