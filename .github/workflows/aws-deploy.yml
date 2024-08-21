@@ -27,4 +27,4 @@ jobs:
 
     - name: Deploy code
       run: |
-        rsync -avz --delete ./ ubuntu@18.141.233.95:/www/wwwroot/lms.line.pm
+        rsync -avz --delete --rsync-path="sudo /usr/local/bin/rsync-wrapper" ./ ubuntu@18.141.233.95:/www/wwwroot/lms.line.pm
