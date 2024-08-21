@@ -1,0 +1,25 @@
+# .github/workflows/deploy.yml
+
+name: Deploy to Lightsail via SSH
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.6.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Deploy code
+      run: |
+        rsync -avz --delete ./ ubuntu@18.141.233.95:/www/wwwroot/lms.line.pm
