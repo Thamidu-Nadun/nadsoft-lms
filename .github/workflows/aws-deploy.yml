@@ -20,6 +20,11 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
+    - name: Add SSH known hosts
+      run: |
+        mkdir -p ~/.ssh
+        ssh-keyscan -H 18.141.233.95 >> ~/.ssh/known_hosts
+
     - name: Deploy code
       run: |
         rsync -avz --delete ./ ubuntu@18.141.233.95:/www/wwwroot/lms.line.pm
